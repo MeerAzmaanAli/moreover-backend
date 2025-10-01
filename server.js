@@ -14,7 +14,7 @@ const PORT = process.env.PORT || 4000;
 const JWT_SECRET = process.env.JWT_SECRET;
 const uri = process.env.MONGO_URI;
 
-let isConnecterd = false;
+/*let isConnecterd = false;
 async function connectToDatabase() {
     try {
         await mongoose.connect(uri, {
@@ -38,11 +38,11 @@ async function connectToDatabase() {
             res.status(500).send("Database connection error");
         }
     }
- });
+ });*/
  
 app.use('/api/products', productsRoutes);
 app.use('/api/user', userRoutes);
-/*mongoose.connect(uri, {
+mongoose.connect(uri, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 }).then(() => {
@@ -52,5 +52,5 @@ app.use('/api/user', userRoutes);
 });
 }).catch(err => {
     console.error("MongoDB connection error:", err);
-});*/
-module.exports = app;
+});
+//module.exports = app;
